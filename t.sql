@@ -64,8 +64,11 @@ SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND met
 SELECT COUNT(*) FROM wp_options WHERE option_value LIKE '%159.203.3.222%';
 SELECT COUNT(*) FROM wp_options WHERE option_value LIKE '%http://159.203.3.222%';
 
-
-
+http:\/\/www.edge-ai-vision.com
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/www.edge-ai-vision.com%' AND meta_key='_elementor_data';
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http://www.edge-ai-vision.com%' AND meta_key='_elementor_data';
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%www.edge-ai-vision.com%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http://www.edge-ai-vision.com%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http:\/\/www.edge-ai-vision.com%' AND meta_key='_elementor_data';
+http:\/\/www.edge-ai-vision.com
 
 UPDATE wp_options SET option_value=REPLACE(option_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
 UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, '159.203.3.222', 'www.edge-ai-vision.com') WHERE meta_key='_elementor_data';
