@@ -70,6 +70,19 @@ SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http://www.edge-ai-visi
 SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%www.edge-ai-vision.com%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http://www.edge-ai-vision.com%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http:\/\/www.edge-ai-vision.com%' AND meta_key='_elementor_data';
 http:\/\/www.edge-ai-vision.com
 
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%clone.embedded-vision.com%'   AND meta_key='_elementor_data' ;
+GROUP BY meta_key;
+CREATE TABLE monkey (
+    post_id BIGINT(20) unsigned,
+    post_parent BIGINT(20) unsigned
+);
+DELETE FROM monkey;
+INSERT INTO monkey (post_id, post_parent) SELECT ID, post_parent FROM wp_posts WHERE ID IN (SELECT post_id FROM wp_postmeta WHERE meta_value LIKE '%www.edge-ai-vision.com%' AND meta_key='_elementor_data') AND meta_value NOT LIKE '%http://www.edge-ai-vision.com%';
+SELECT post_parent, COUNT(*) FROM monkey WHERE post_parent<>0 GROUP BY post_parent;
+
+AND post_parent=0;
+;
+
 UPDATE wp_options SET option_value=REPLACE(option_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
 UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, '159.203.3.222', 'www.edge-ai-vision.com') WHERE meta_key='_elementor_data';
 UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com') WHERE meta_key<>'_elementor_data';
