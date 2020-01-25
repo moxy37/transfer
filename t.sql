@@ -25,31 +25,72 @@ SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http://159.203.3.222%';
 SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' GROUP BY meta_key;
 SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/159.203.3.222%' GROUP BY meta_key;
 
+SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http://159.203.3.222%' GROUP BY meta_key;
+
 SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/159.203.3.222%' AND meta_key='_elementor_data';
 SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\\159.203.3.222%' AND meta_key='_elementor_data';
 SELECT meta_id FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data' AND meta_value LIKE 'http:\/\/159.203.3.222';
  --AND meta_value NOT LIKE '%http:\/\/159.203.3.222%' GROUP BY meta_key;
+SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE  '%http:\/\/159.203.3.222%' GROUP BY meta_key;
+SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE  '%http:\\/\\/159.203.3.222%' GROUP BY meta_key;
 
+SELECT * FROM wp_postmeta WHERE meta_value LIKE  '%http:\\/\\/159.203.3.222%'  AND meta_key='_elementor_data'\G
+
+ AND meta_value NOT LIKE '%http:\/\/159.203.3.222%' AND meta_value NOT LIKE '%http:\\/\\/159.203.3.222%';
 
 SELECT meta_id FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/159.203.3.222%' AND meta_key='_elementor_data';
 SELECT meta_id FROM wp_postmeta WHERE meta_value LIKE '%http:\\159.203.3.222%' AND meta_key='_elementor_data';
-SELECT * FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http:\/\/159.203.3.222%' AND meta_value NOT LIKE '%http://159.203.3.222%';
+SELECT * FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http:\/\/159.203.3.222%' AND meta_value NOT LIKE '%http:\\/\\/159.203.3.222%';
 
-UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_posts SET guid=REPLACE(guid, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_posts SET post_content=REPLACE(post_content, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_nextend2_smartslider3_slides SET slide=REPLACE(slide, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_usermeta SET meta_value=REPLACE(meta_value, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
-UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http:\/\/159.203.3.222', 'http://www.edge-ai-vision.com');
+
+
+
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value NOT LIKE '%http%' AND meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data';
+
+UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, '159.203.3.222', 'www.edge-ai-vision.com') WHERE meta_key='_elementor_data';
+UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com') WHERE meta_key<>'_elementor_data';
+UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_posts SET guid=REPLACE(guid, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_posts SET post_content=REPLACE(post_content, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_nextend2_smartslider3_slides SET slide=REPLACE(slide, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_usermeta SET meta_value=REPLACE(meta_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
 
 SELECT meta_key, COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/159.203.3.222%' GROUP BY meta_key;
 
 SELECT * FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_value NOT LIKE '%http://159.203.3.222%' AND post_id=11038\G
 
 SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http%';
-| _elementor_data                          |        9 |286 
+SELECT COUNT(*) FROM wp_options WHERE option_value LIKE '%159.203.3.222%';
+SELECT COUNT(*) FROM wp_options WHERE option_value LIKE '%http://159.203.3.222%';
 
 
-not http
-| _elementor_data                          |      286 |
+
+
+UPDATE wp_options SET option_value=REPLACE(option_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, '159.203.3.222', 'www.edge-ai-vision.com') WHERE meta_key='_elementor_data';
+UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com') WHERE meta_key<>'_elementor_data';
+--Trying this one
+ALTER TABLE wp_toolset_post_guid_id MODIFY guid VARCHAR(255);
+UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+ALTER TABLE wp_toolset_post_guid_id MODIFY guid VARCHAR(190);
+
+UPDATE wp_posts SET guid=REPLACE(guid, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_posts SET post_content=REPLACE(post_content, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_nextend2_smartslider3_slides SET slide=REPLACE(slide, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+UPDATE wp_usermeta SET meta_value=REPLACE(meta_value, 'http://159.203.3.222', 'http://www.edge-ai-vision.com');
+
+
+
+--Next do these
+SELECT * FROM wp_postmeta WHERE meta_value LIKE '%www.edge-ai-vision.com%' AND meta_key='_elementor_data'\G
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\/\/www.edge-ai-vision.com%' AND meta_key='_elementor_data';
+SELECT COUNT(*) FROM wp_postmeta WHERE meta_value LIKE '%http:\\/\\/www.edge-ai-vision.com%' AND meta_key='_elementor_data';
+UPDATE wp_postmeta SET meta_value=REPLACE(meta_value, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com') WHERE meta_key<>'_elementor_data';
+UPDATE wp_toolset_post_guid_id SET guid=REPLACE(guid, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+UPDATE wp_options SET option_value=REPLACE(option_value, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+UPDATE wp_posts SET guid=REPLACE(guid, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+UPDATE wp_posts SET post_content=REPLACE(post_content, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+UPDATE wp_nextend2_smartslider3_slides SET slide=REPLACE(slide, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+UPDATE wp_usermeta SET meta_value=REPLACE(meta_value, 'http://www.edge-ai-vision.com', 'https://www.edge-ai-vision.com');
+

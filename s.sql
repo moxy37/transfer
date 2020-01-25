@@ -1,1 +1,1 @@
-SELECT * FROM wp_postmeta WHERE meta_value LIKE '%159.203.3.222%' AND meta_key='_elementor_data' AND meta_value NOT LIKE '%http:\/\/159.203.3.222%';
+SELECT * FROM wp_postmeta WHERE meta_value LIKE '%www.edge-ai-vision.com%' AND meta_key='_elementor_data'\G
