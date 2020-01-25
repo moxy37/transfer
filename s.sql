@@ -1,4 +1,4 @@
-DROP IF EXISTS dog;
+DROP TABLE IF EXISTS dog;
 CREATE TABLE dog (
     url VARCHAR(1024),
     title VARCHAR(1024)
