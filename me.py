@@ -21,8 +21,8 @@ try:
         i = 0
         j = 0
         temp = row[4]
-        while temp.count('http', i) > 0:
-            i = temp.find('http', i)
+        while temp.count('"http', i) > 0:
+            i = temp.find('"http', i)
             j = temp.find('"', i)
             f.write(temp[i:j]+'\n')
             i = i + 1
