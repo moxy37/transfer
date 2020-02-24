@@ -1,0 +1,33 @@
+import pymysql
+import requests
+import os
+# Open database connection
+db = pymysql.connect("localhost","wpuser","N#P8%zD5N%","wp_eva_db" )
+
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+
+# Prepare SQL query to INSERT a record into the database.
+sql = "SELECT table_name, column_name, meta_id, post_id, val FROM dog"
+try:
+    # Execute the SQL command
+    cursor.execute(sql)
+    f = open('outfile.txt', 'a')
+    # Fetch all the rows in a list of lists.
+    results = cursor.fetchall()
+    for row in results:
+        i = 0
+        j = 0
+        temp = row[4]
+        while temp.count('X_X_Xhttp', i) > 0:
+            i = temp.find('X_X_Xhttp', i)
+            j = temp.find('X_X_X', i)
+            f.write(temp[i:j]+'\n')
+            i = i + 1
+except:
+   print ("Error: unable to fetch data")
+
+# disconnect from server
+db.close()
+f.close()
+print("done")

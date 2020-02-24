@@ -1,0 +1,1 @@
+SELECT DISTINCT(val) FROM urls;
