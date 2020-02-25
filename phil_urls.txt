@@ -1,4 +1,3 @@
-val
 http://www.embedded-vision.com/sites/all/modules/ckeditor/ckeditor/plugins/smiley/images/embaressed_smile.gif
 http://www.embedded-vision.com/users/guocslock
 http://www.embedded-vision.com/forums/2012/12/04/developing-opencv-applications-android
